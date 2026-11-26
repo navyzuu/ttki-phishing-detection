@@ -214,7 +214,7 @@ P(f"Penelitian ini menjawab pertanyaan berikut: apakah selisih F1 antara pembagi
 # ------------------------------------------------------------------ 2 metode
 H("2. Metode")
 P("Keputusan metodologi dicatat sebelum data uji dibuka (docs/decisions.md); analisis sesudahnya diberi label post-hoc.")
-d.add_picture("figures/gambar1_alur.png", width=Inches(4.1))
+d.add_picture("figures/gambar1_alur.png", width=Inches(3.9))
 d.paragraphs[-1].paragraph_format.keep_with_next = True
 caption("Gambar 1. Alur eksperimen dari data mentah sampai pengukuran waktu inferensi.")
 H("2.1 Dataset dan pembersihan", 3)
@@ -262,7 +262,7 @@ for sk, lab in (("R_acak", "Aturan bentuk URL† (acak)"), ("R_grup", "Aturan be
 caption(f"Tabel 1. Hasil pada data uji (rata-rata ± simpangan baku lima *seed*; kelas positif phishing; n uji sekitar {i(TT[TT.skenario=='A'].n.mean())} pada pembagian acak dan {i(TT[TT.skenario=='C'].n.mean())} pada pembagian grup). † = analisis post-hoc.")
 table(["Skenario", "Model", "F1", "Precision", "Recall", "ROC-AUC", "FN"], rows2, [4.6, 2.9, 2.6, 1.7, 1.7, 1.7, 1.0], size=9)
 d.add_paragraph().paragraph_format.space_after = Pt(2)
-figure("figures/gambar2_f1.png", 4.5, "Gambar 2. F1 pada data uji per skenario dan model. Garis tebal menunjukkan rata-rata lima *seed*, titik menunjukkan tiap *seed*, dan garis putus-putus menunjukkan baseline aturan satu baris.")
+figure("figures/gambar2_f1.png", 4.3, "Gambar 2. F1 pada data uji per skenario dan model. Garis tebal menunjukkan rata-rata lima *seed*, titik menunjukkan tiap *seed*, dan garis putus-putus menunjukkan baseline aturan satu baris.")
 H("3.3 Selisih antar skenario", 3)
 a_d_lr, a_d_rf = ds("A-D: acak vs grup, fitur lengkap", "LR"), ds("A-D: acak vs grup, fitur lengkap", "RF")
 b_c_lr, b_c_rf = ds("B-C: acak vs grup, URL-only", "LR"), ds("B-C: acak vs grup, URL-only", "RF")
@@ -325,7 +325,7 @@ H("4.3 Artefak dataset", 3)
 P(f"Skor URL-only yang tinggi tidak dapat langsung dibaca sebagai kemampuan mendeteksi phishing. Aturan satu baris yang hanya mengenali bentuk URL legitimate dalam dataset memperoleh F1 setara atau lebih tinggi daripada model terlatih. Temuan ini sejalan dengan pernyataan Ahamed dkk. (2026) bahwa kedua kelas sangat mudah dipisahkan dan dengan dua kesalahan umum (*pitfall*) pada Arp dkk. (2022): korelasi semu (P4), ketika artefak yang tidak berkaitan dengan masalah keamanan menjadi pola pintasan, dan pembanding yang tidak sesuai (P6), yang menganjurkan model sederhana ikut dibandingkan. "
   f"Fitur turunan korpus memperkuat gambaran itu: empat fitur tersebut menaikkan F1 menjadi {n(min(fm['E','LR'], fm['F','LR']), 4)} sampai {n(max(fm['E','RF'], fm['F','RF']), 4)}, dan nilai URLSimilarityIndex tepat 100 pada seluruh URL legitimate. Apakah 21 fitur turunan URL (*URL-derived features*) pada Ivandanizar dan Taufiq (2026), yang menghasilkan F1 99,7495% pada pembagian domain, memuat fitur serupa tidak dapat dipastikan karena daftarnya tidak dirinci; perbandingan langsung juga terhambat perbedaan model dan pembagian 80:20 tanpa data validasi.")
 H("4.4 Keterbatasan dan ancaman terhadap validitas", 3)
-P("Keterbatasan penelitian ini: (1) satu dataset tanpa uji pada data independen atau terpisah waktu, sehingga tidak ada klaim tentang domain baru (keterbatasan serupa diakui oleh Chaudhuri dan Mohankumar, 2026, yang memakai validasi silang berstratifikasi tanpa data uji terpisah waktu); (2) lima *seed* dan hasil pembagian grup yang dipengaruhi grup besar; (3) analisis sensitivitas dengan sufiks privat pada pembentukan grup (misalnya memisahkan subdomain platform hosting) direncanakan tetapi belum dijalankan; (4) 18 fitur URL-only dihitung ulang dengan definisi sendiri; (5) hanya dua model dengan grid kecil; (6) biaya pengambilan halaman tidak diukur; dan (7) analisis post-hoc dirumuskan setelah data uji dibuka sehingga bersifat eksploratif.")
+P("Keterbatasan penelitian ini: (1) satu dataset tanpa uji pada data independen atau terpisah waktu, sehingga tidak ada klaim tentang domain baru (keterbatasan serupa diakui oleh Chaudhuri dan Mohankumar, 2026, yang memakai validasi silang berstratifikasi tanpa data uji terpisah waktu; evaluasi lintas dataset pada URL dalam email melaporkan akurasi rata-rata di atas 94% pada empat himpunan uji sekunder, Yi dkk., 2025, lebih rendah daripada hasil hampir sempurna pada satu dataset meski tidak sebanding langsung); (2) lima *seed* dan hasil pembagian grup yang dipengaruhi grup besar; (3) analisis sensitivitas dengan sufiks privat pada pembentukan grup (misalnya memisahkan subdomain platform hosting) direncanakan tetapi belum dijalankan; (4) 18 fitur URL-only dihitung ulang dengan definisi sendiri; (5) hanya dua model dengan grid kecil; (6) biaya pengambilan halaman tidak diukur; dan (7) analisis post-hoc dirumuskan setelah data uji dibuka sehingga bersifat eksploratif.")
 
 # ------------------------------------------------------------------ 5 kesimpulan
 H("5. Kesimpulan")
@@ -352,6 +352,7 @@ refs = [
     "pradhyumnaag30. (2025). *PhiUSIIL-Phishing-URL-Detection* [Kode sumber]. GitHub. https://github.com/pradhyumnaag30/PhiUSIIL-Phishing-URL-Detection",
     "Prasad, A., & Chandra, S. (2024a). PhiUSIIL: A diverse security profile empowered phishing URL detection framework based on similarity index and incremental learning. *Computers & Security, 136*, 103545. https://doi.org/10.1016/j.cose.2023.103545",
     "Prasad, A., & Chandra, S. (2024b). *PhiUSIIL Phishing URL (Website)* [Dataset]. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset",
+    "Yi, L., Omotosho, A., & Balogun, H. (2025). Phishing URL detection and interpretability with machine learning: A cross-dataset approach. *Security and Privacy, 9*(1). https://doi.org/10.1002/spy2.70175",
 ]
 for r in refs:
     par = P(r, size=10)
