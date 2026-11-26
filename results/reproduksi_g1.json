@@ -1,0 +1,79 @@
+{
+  "lingkungan": {
+    "python": "3.11.9",
+    "scikit_learn": "1.9.1"
+  },
+  "protokol": {
+    "baris": 235795,
+    "n_fitur": 50,
+    "n_train": 165056,
+    "n_test": 70739,
+    "catatan": "model tanpa random_state seperti G1; hasil DT/RF/ET dapat berbeda tipis antar run"
+  },
+  "hasil": {
+    "Logistic Regression": {
+      "positif_label1": {
+        "accuracy": 0.9999010446853928,
+        "precision": 0.9999011271504845,
+        "recall": 0.9999258435298479,
+        "f1": 0.9999134851874282,
+        "roc_auc": 0.9999991103051945
+      },
+      "positif_phishing": {
+        "accuracy": 0.9999010446853928,
+        "precision": 0.9999009345177162,
+        "recall": 0.9998679170519086,
+        "f1": 0.9998844255122427,
+        "roc_auc": 0.9999991103051947
+      }
+    },
+    "Decision Tree": {
+      "positif_label1": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+      },
+      "positif_phishing": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+      }
+    },
+    "Random Forest": {
+      "positif_label1": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+      },
+      "positif_phishing": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+      }
+    },
+    "Extra Trees": {
+      "positif_label1": {
+        "accuracy": 0.9999717270529693,
+        "precision": 0.9999505647971921,
+        "recall": 1.0,
+        "f1": 0.9999752817876211,
+        "roc_auc": 1.0
+      },
+      "positif_phishing": {
+        "accuracy": 0.9999717270529693,
+        "precision": 1.0,
+        "recall": 0.9999339585259543,
+        "f1": 0.9999669781725721,
+        "roc_auc": 1.0
+      }
+    }
+  }
+}
