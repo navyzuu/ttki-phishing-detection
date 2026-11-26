@@ -1,0 +1,74 @@
+{
+  "URLLength": {
+    "cocok_persis": 0.2062,
+    "korelasi": 1.0
+  },
+  "DomainLength": {
+    "cocok_persis": 0.9999,
+    "korelasi": 1.0
+  },
+  "IsDomainIP": {
+    "cocok_persis": 1.0,
+    "korelasi": 0.9895
+  },
+  "TLDLength": {
+    "cocok_persis": 0.9999,
+    "korelasi": 0.9971
+  },
+  "NoOfSubDomain": {
+    "cocok_persis": 1.0,
+    "korelasi": 1.0
+  },
+  "HasObfuscation": {
+    "cocok_persis": 0.9981,
+    "korelasi": 0.6623
+  },
+  "NoOfObfuscatedChar": {
+    "cocok_persis": 0.9971,
+    "korelasi": 0.9437
+  },
+  "ObfuscationRatio": {
+    "cocok_persis": 0.9967,
+    "korelasi": 0.6665
+  },
+  "NoOfLettersInURL": {
+    "cocok_persis": 0.0,
+    "korelasi": 0.9981
+  },
+  "LetterRatioInURL": {
+    "cocok_persis": 0.0,
+    "korelasi": 0.5144
+  },
+  "NoOfDegitsInURL": {
+    "cocok_persis": 0.9958,
+    "korelasi": 1.0
+  },
+  "DegitRatioInURL": {
+    "cocok_persis": 0.7913,
+    "korelasi": 0.9997
+  },
+  "NoOfEqualsInURL": {
+    "cocok_persis": 0.9989,
+    "korelasi": 0.9998
+  },
+  "NoOfQMarkInURL": {
+    "cocok_persis": 0.9999,
+    "korelasi": 0.9986
+  },
+  "NoOfAmpersandInURL": {
+    "cocok_persis": 0.9874,
+    "korelasi": 0.1259
+  },
+  "NoOfOtherSpecialCharsInURL": {
+    "cocok_persis": 0.6133,
+    "korelasi": 0.9391
+  },
+  "SpacialCharRatioInURL": {
+    "cocok_persis": 0.0043,
+    "korelasi": 0.573
+  },
+  "IsHTTPS": {
+    "cocok_persis": 0.998,
+    "korelasi": 0.9942
+  }
+}

@@ -59,3 +59,9 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 - Keputusan: skema utama `grup` memakai `StratifiedGroupKFold` (20 lipatan, dirakit 14/3/3). Hasil: test berproporsi phishing 42,4% sampai 43,6% (total 42,71%), ukuran bagian sekitar 70/15/15, tumpang tindih grup nol pada semua seed.
 - Versi naif tetap tersedia sebagai `grup_shuffle` untuk analisis sensitivitas (sebanding dengan GroupShuffleSplit pada studi terdahulu).
 - Biaya: pembuatan split per grup lambat (menit per seed); hasil di-cache di `data/interim/` (tidak masuk repositori) dan dapat dibuat ulang dari seed.
+
+### 2. Fitur URL-only dihitung ulang dari string URL (26 November 2026, sebelum model apa pun dilatih)
+- Temuan (`src/check_features.py`, `results/feature_agreement.json`, 20.000 baris acak): 18 kolom leksikal PhiUSIIL tidak dapat direproduksi persis dari string URL. `URLLength` berbeda 1 karakter dari panjang URL pada 79% baris, jumlah huruf memakai definisi yang tidak jelas, dan korelasi rasio berbeda dari tebakan definisi (LetterRatioInURL 0,51; SpacialCharRatioInURL 0,57; ObfuscationRatio 0,67). Fitur domain, TLD, subdomain, digit, dan IsDomainIP cocok 99,6% sampai 100%.
+- Masalah: waktu ekstraksi (bagian RQ) hanya dapat diukur dengan fungsi ekstraksi sendiri, dan model yang dilatih pada kolom CSV tidak identik dengan fitur hasil fungsi itu.
+- Keputusan: skenario URL-only (B, C) dan ablation memakai 18 fitur hasil `src/features.py` (nama mengikuti PhiUSIIL, definisi dituliskan di kode). Fungsi yang sama dipakai untuk melatih dan mengukur waktu. Skenario "semua fitur" (A, D) tetap memakai 50 kolom CSV.
+- Konsekuensi: A dan B tidak hanya berbeda pada kelompok fitur, tetapi juga pada definisi 18 fitur leksikalnya; hal ini dilaporkan sebagai keterbatasan, bersama tingkat kecocokan per fitur.
