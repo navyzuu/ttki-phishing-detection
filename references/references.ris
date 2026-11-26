@@ -240,3 +240,54 @@ IS  - 1
 VL  - 18
 SN  - 2832-6024
 ER  -
+
+TY  - JOUR
+DO  - 10.62671/gaset.v2i1.362
+UR  - http://dx.doi.org/10.62671/gaset.v2i1.362
+TI  - Analysis of Feature Selection Effects on Phishing URL Detection Performance
+T2  - Global Advances in Science, Engineering & Technology (GASET)
+AU  - M. Ivandanizar, Ivan
+AU  - Taufiq, Taufiq
+PY  - 2026
+DA  - 2026/10/29
+PB  - Institute for Agricultural and Environmental Development Studies (LKPPL)
+SP  - 63-73
+IS  - 1
+VL  - 2
+SN  - 3123-724X
+ER  -
+
+TY  - CONF
+AU  - Arp, Daniel
+AU  - Quiring, Erwin
+AU  - Pendlebury, Feargus
+AU  - Warnecke, Alexander
+AU  - Pierazzi, Fabio
+AU  - Wressnegger, Christian
+AU  - Cavallaro, Lorenzo
+AU  - Rieck, Konrad
+TI  - Dos and Don'ts of Machine Learning in Computer Security
+T2  - Proceedings of the 31st USENIX Security Symposium (USENIX Security 22)
+PY  - 2022
+SP  - 3971
+EP  - 3988
+CY  - Boston, MA
+UR  - https://www.usenix.org/conference/usenixsecurity22/presentation/arp
+ER  - 
+
+TY  - DATA
+AU  - Prasad, Arvind
+AU  - Chandra, Shalini
+TI  - PhiUSIIL Phishing URL (Website)
+PB  - UCI Machine Learning Repository
+PY  - 2024
+UR  - https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset
+ER  - 
+
+TY  - COMP
+AU  - pradhyumnaag30
+TI  - PhiUSIIL-Phishing-URL-Detection
+PB  - GitHub
+PY  - 2025
+UR  - https://github.com/pradhyumnaag30/PhiUSIIL-Phishing-URL-Detection
+ER  - 

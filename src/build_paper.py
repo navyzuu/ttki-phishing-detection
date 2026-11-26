@@ -242,11 +242,20 @@ P("Setelah data uji dibuka dan tanpa mengubah konfigurasi utama, dilakukan empat
 H("3. Hasil")
 H("3.1 Karakteristik data dan pembagian", 3)
 s_ac, s_gr = split["acak"]["42"], split["grup"]["42"]
-P(f"Setelah {i(audit['url_duplikat_baris'] // 2)} URL duplikat dibuang, tersisa {i(split['baris_setelah_dedup'])} URL dengan {n(split['proporsi_phishing_total'] * 100, 2)}% phishing dan {i(split['grup_unik'])} grup eTLD+1. "
-  f"Pada pembagian acak (*seed* 42), data latih, validasi, dan uji berisi {i(s_ac['train']['baris'])}, {i(s_ac['validation']['baris'])}, dan {i(s_ac['test']['baris'])} URL, dan {i(s_ac['grup_tumpang_tindih']['train_test'])} grup eTLD+1 yang sama muncul pada data latih dan uji. "
-  f"Pada pembagian grup, ukurannya {i(s_gr['train']['baris'])}, {i(s_gr['validation']['baris'])}, dan {i(s_gr['test']['baris'])} URL tanpa grup yang tumpang tindih; proporsi phishing data uji berkisar {n(min(prop('grup')), 1)}% sampai {n(max(prop('grup')), 1)}% pada lima *seed*.")
+n_phish_dedup = int((df.phish == 1).sum())
+P(f"Tabel 1 merangkum data setelah {i(audit['url_duplikat_baris'] // 2)} URL duplikat dibuang. Pada pembagian acak, {i(s_ac['grup_tumpang_tindih']['train_test'])} grup eTLD+1 yang sama muncul pada data latih dan uji, sedangkan pada pembagian grup tidak ada.")
+caption("Tabel 1. Karakteristik dataset dan pembagian data (*seed* 42 kecuali dinyatakan lain).")
+table(["Item", "Nilai"], [
+    ["URL unik (phishing)", f"{i(split['baris_setelah_dedup'])} ({i(n_phish_dedup)}; {n(split['proporsi_phishing_total'] * 100, 2)}%)"],
+    ["Fitur numerik", "50 = 18 leksikal URL + 4 turunan korpus + 28 konten HTML"],
+    ["Grup eTLD+1", i(split["grup_unik"])],
+    ["Pembagian acak: latih / validasi / uji", f"{i(s_ac['train']['baris'])} / {i(s_ac['validation']['baris'])} / {i(s_ac['test']['baris'])}"],
+    ["Pembagian grup: latih / validasi / uji", f"{i(s_gr['train']['baris'])} / {i(s_gr['validation']['baris'])} / {i(s_gr['test']['baris'])}"],
+    ["Phishing pada data uji grup (5 *seed*)", f"{n(min(prop('grup')), 1)}% sampai {n(max(prop('grup')), 1)}%"],
+], [6.2, 10.3], size=9.5)
+d.add_paragraph().paragraph_format.space_after = Pt(2)
 H("3.2 Hasil utama", 3)
-P(f"Pada fitur lengkap (skenario A dan D), F1 uji berada pada {n(min(fm['A','LR'], fm['D','LR']), 4)} sampai {n(max(fm['A','RF'], fm['D','RF']), 4)} pada kedua pembagian dan kedua model (Tabel 1). "
+P(f"Pada fitur lengkap (skenario A dan D), F1 uji berada pada {n(min(fm['A','LR'], fm['D','LR']), 4)} sampai {n(max(fm['A','RF'], fm['D','RF']), 4)} pada kedua pembagian dan kedua model (Tabel 2). "
   f"Pada fitur URL-only (B dan C), F1 turun menjadi {n(fm['B','LR'], 4)} (Logistic Regression) dan {n(fm['B','RF'], 4)} (Random Forest) pada pembagian acak, serta {n(fm['C','LR'], 4)} dan {n(fm['C','RF'], 4)} pada pembagian grup. "
   f"Gambar 2 memperlihatkan seluruh *seed*; simpangan baku skenario C Random Forest ({n(fsd['C','RF'], 4)}) jauh lebih besar daripada pada B ({n(fsd['B','RF'], 4)}).")
 nama_sk = {"A": "A (acak, 50 fitur)", "B": "B (acak, URL-only)", "C": "C (grup, URL-only)", "D": "D (grup, 50 fitur)", "E": "E† (acak, URL-only + 4 turunan korpus)", "F": "F† (grup, URL-only + 4 turunan korpus)"}
@@ -259,7 +268,7 @@ for sk in ["A", "B", "C", "D", "E", "F"]:
 for sk, lab in (("R_acak", "Aturan bentuk URL† (acak)"), ("R_grup", "Aturan bentuk URL† (grup)")):
     x = M[(M.skenario == sk) & (M.bagian == "test")]
     rows2.append([lab, "tanpa parameter", f"{n(x.f1.mean(), 4)} ± {n(x.f1.std(), 4)}", n(x.precision.mean(), 4), n(x.recall.mean(), 4), n(x.roc_auc.mean(), 4), n(x.fn.mean(), 1)])
-caption(f"Tabel 1. Hasil pada data uji (rata-rata ± simpangan baku lima *seed*; kelas positif phishing; n uji sekitar {i(TT[TT.skenario=='A'].n.mean())} pada pembagian acak dan {i(TT[TT.skenario=='C'].n.mean())} pada pembagian grup). † = analisis post-hoc.")
+caption(f"Tabel 2. Hasil pada data uji (rata-rata ± simpangan baku lima *seed*; kelas positif phishing; n uji sekitar {i(TT[TT.skenario=='A'].n.mean())} pada pembagian acak dan {i(TT[TT.skenario=='C'].n.mean())} pada pembagian grup). † = analisis post-hoc.")
 table(["Skenario", "Model", "F1", "Precision", "Recall", "ROC-AUC", "FN"], rows2, [4.6, 2.9, 2.6, 1.7, 1.7, 1.7, 1.0], size=9)
 d.add_paragraph().paragraph_format.space_after = Pt(2)
 figure("figures/gambar2_f1.png", 4.3, "Gambar 2. F1 pada data uji per skenario dan model. Garis tebal menunjukkan rata-rata lima *seed*, titik menunjukkan tiap *seed*, dan garis putus-putus menunjukkan baseline aturan satu baris.")
@@ -287,16 +296,16 @@ rows3 = [
     ["F − C: efek 4 fitur turunan korpus†", cel(f_c_lr), cel(f_c_rf)],
     ["E − F: acak − grup, URL-only + korpus†", cel(e_f_lr), cel(e_f_rf)],
 ]
-P(f"Pada fitur lengkap, selisih F1 antara pembagian acak dan grup praktis nol: {sg(a_d_lr[0])} (Logistic Regression) dan {sg(a_d_rf[0])} (Random Forest), dengan interval 95% yang mencakup nol pada kelima *seed* (Tabel 2). "
+P(f"Pada fitur lengkap, selisih F1 antara pembagian acak dan grup praktis nol: {sg(a_d_lr[0])} (Logistic Regression) dan {sg(a_d_rf[0])} (Random Forest), dengan interval 95% yang mencakup nol pada kelima *seed* (Tabel 3). "
   f"Pada fitur URL-only, selisihnya {sg(b_c_lr[0])} dan {sg(b_c_rf[0])}, berlawanan arah antar model, dan interval tidak mencakup nol pada {b_c_lr[1]} dan {b_c_rf[1]} dari 5 *seed*. "
   f"Fitur lengkap lebih unggul daripada URL-only sebesar {n(a_b_lr[0], 4)} dan {n(a_b_rf[0], 4)} pada pembagian acak, serta {n(d_c_lr[0], 4)} dan {n(d_c_rf[0], 4)} pada pembagian grup, pada kelima *seed*.")
-caption("Tabel 2. Selisih F1 rata-rata lima *seed* (jumlah *seed* dengan interval bootstrap 95% yang tidak mencakup nol). † = analisis post-hoc.")
+caption("Tabel 3. Selisih F1 rata-rata lima *seed* (jumlah *seed* dengan interval bootstrap 95% yang tidak mencakup nol). † = analisis post-hoc.")
 table(["Perbandingan", "Logistic Regression", "Random Forest"], rows3, [8.2, 4.1, 4.1])
 d.add_paragraph().paragraph_format.space_after = Pt(2)
 H("3.4 Baseline aturan dan artefak bentuk URL", 3)
 P(f"Seluruh {i(n_leg)} URL legitimate berbentuk https://www.<domain> tanpa path, sedangkan hanya {i(n_ph_bentuk)} dari {i(n_ph)} URL phishing ({n(n_ph_bentuk / n_ph * 100, 1)}%) berbentuk sama. "
   f"Aturan tanpa parameter yang memprediksi phishing untuk bentuk lain mencapai F1 uji {n(rule_ac.f1.mean(), 4)} (acak) dan {n(rule_gr.f1.mean(), 4)} (grup), dengan *precision* 1,0000 dan *recall* {n(rule_ac.recall.mean(), 4)} dan {n(rule_gr.recall.mean(), 4)}. "
-  f"Model URL-only tidak mengungguli aturan ini: selisih F1 model dikurangi aturan adalah {sg(b_r_lr[0])} (Logistic Regression) dan {sg(b_r_rf[0])} (Random Forest) pada pembagian acak, serta {sg(c_r_lr[0])} dan {sg(c_r_rf[0])} pada pembagian grup (Tabel 2).")
+  f"Model URL-only tidak mengungguli aturan ini: selisih F1 model dikurangi aturan adalah {sg(b_r_lr[0])} (Logistic Regression) dan {sg(b_r_rf[0])} (Random Forest) pada pembagian acak, serta {sg(c_r_lr[0])} dan {sg(c_r_rf[0])} pada pembagian grup (Tabel 3).")
 H("3.5 Pembagian dengan F1 terendah", 3)
 P(f"Pada skenario C dengan Random Forest, *seed* 44 menghasilkan F1 {n(c_rf.loc[44], 4)}, sedangkan empat *seed* lain berkisar {n(c_rf.drop(44).min(), 4)} sampai {n(c_rf.drop(44).max(), 4)}. "
   f"Pada *seed* itu, seluruh grup {out44['grup_teratas']} ({i(out44['baris_grup_di_test'])} URL, semuanya phishing) masuk ke data uji, dan {i(out44['fn_dari_grup_teratas'])} dari {i(out44['fn_total'])} negatif palsu ({n(out44['pangsa_fn_grup_teratas'] * 100, 1)}%) berasal dari grup itu. "
@@ -309,15 +318,15 @@ P(f"Ekstraksi 18 fitur dari string URL memerlukan {n(ext['median'], 3)} ms (medi
 
 H("3.8 Reproduksi baseline repositori referensi", 3)
 gl = g1["hasil"]
-P(f"Protokol repositori referensi (pradhyumnaag30, 2025) ditiru pada berkas data yang identik (SHA-256 sama). Hasilnya cocok dengan yang dipublikasikan repositori itu sampai enam desimal (Logistic Regression F1 {n(gl['Logistic Regression']['positif_label1']['f1'], 6)}; Random Forest {n(gl['Random Forest']['positif_label1']['f1'], 6)}). "
-  f"Repositori itu menghitung label 1 (legitimate) sebagai kelas positif; dengan phishing sebagai kelas positif, F1 Logistic Regression menjadi {n(gl['Logistic Regression']['positif_phishing']['f1'], 6)}.")
+P(f"Protokol repositori referensi (pradhyumnaag30, 2025) ditiru pada berkas data yang identik (SHA-256 sama) dan hasilnya cocok dengan yang dipublikasikan sampai enam desimal (Logistic Regression F1 {n(gl['Logistic Regression']['positif_label1']['f1'], 6)}; Random Forest {n(gl['Random Forest']['positif_label1']['f1'], 6)}). "
+  f"Repositori itu memakai label 1 (legitimate) sebagai kelas positif; dengan phishing sebagai kelas positif, F1 Logistic Regression menjadi {n(gl['Logistic Regression']['positif_phishing']['f1'], 6)}.")
 
 # ------------------------------------------------------------------ 4 pembahasan
 H("4. Pembahasan")
 H("4.1 Pembagian per domain dan fitur URL-only (H1)", 3)
 P(f"H1 tidak terdukung secara konsisten. Pada fitur lengkap, pembagian per eTLD+1 tidak mengubah hasil, sejalan dengan selisih yang sangat kecil pada Ivandanizar dan Taufiq (2026). "
   f"Pada fitur URL-only, selisihnya secara numerik lebih besar, tetapi arahnya berbeda antar model dan tanda selisih Random Forest berbalik bila *seed* 44 dikeluarkan. Dugaan yang paling sederhana adalah bahwa selisih itu ditentukan oleh grup besar yang kebetulan masuk ke data uji: seluruh grup web.app pada *seed* 44 berisi phishing dan model yang tidak melihat grup itu pada data latih melewatkan sebagian URL-nya. Dugaan ini belum diuji. "
-  f"Pada bidang lain, validasi per partisipan menurunkan akurasi dari 0,91 menjadi 0,66 dibanding validasi berlipat biasa (Karbalaie dkk., 2026); penurunan sebesar itu tidak ditemukan pada PhiUSIIL.")
+  f"Pada bidang lain, untuk model Extra Trees, validasi per partisipan menurunkan akurasi dari 0,91 (validasi berlipat berstratifikasi) menjadi 0,66 (Karbalaie dkk., 2026); penurunan sebesar itu tidak ditemukan pada PhiUSIIL.")
 H("4.2 Waktu inferensi (H2)", 3)
 P(f"H2 tidak terdukung pada komponen yang dapat diukur. Ekstraksi 18 fitur nyaris tanpa biaya ({n(ext['median'], 3)} ms), dan waktu prediksi tidak berkurang karena jumlah fitur lebih sedikit. "
   f"Keunggulan URL-only yang lebih masuk akal, yaitu tidak perlu mengambil dan menguraikan halaman web, tidak diukur dan karena itu tidak diklaim. Penurunan F1 akibat meninggalkan fitur lengkap berkisar {n(min(a_b_rf[0], d_c_rf[0]), 4)} sampai {n(max(a_b_lr[0], d_c_lr[0]), 4)}.")
@@ -325,12 +334,12 @@ H("4.3 Artefak dataset", 3)
 P(f"Skor URL-only yang tinggi tidak dapat langsung dibaca sebagai kemampuan mendeteksi phishing. Aturan satu baris yang hanya mengenali bentuk URL legitimate dalam dataset memperoleh F1 setara atau lebih tinggi daripada model terlatih. Temuan ini sejalan dengan pernyataan Ahamed dkk. (2026) bahwa kedua kelas sangat mudah dipisahkan dan dengan dua kesalahan umum (*pitfall*) pada Arp dkk. (2022): korelasi semu (P4), ketika artefak yang tidak berkaitan dengan masalah keamanan menjadi pola pintasan, dan pembanding yang tidak sesuai (P6), yang menganjurkan model sederhana ikut dibandingkan. "
   f"Fitur turunan korpus memperkuat gambaran itu: empat fitur tersebut menaikkan F1 menjadi {n(min(fm['E','LR'], fm['F','LR']), 4)} sampai {n(max(fm['E','RF'], fm['F','RF']), 4)}, dan nilai URLSimilarityIndex tepat 100 pada seluruh URL legitimate. Apakah 21 fitur turunan URL (*URL-derived features*) pada Ivandanizar dan Taufiq (2026), yang menghasilkan F1 99,7495% pada pembagian domain, memuat fitur serupa tidak dapat dipastikan karena daftarnya tidak dirinci; perbandingan langsung juga terhambat perbedaan model dan pembagian 80:20 tanpa data validasi.")
 H("4.4 Keterbatasan dan ancaman terhadap validitas", 3)
-P("Keterbatasan penelitian ini: (1) satu dataset tanpa uji pada data independen atau terpisah waktu, sehingga tidak ada klaim tentang domain baru (keterbatasan serupa diakui oleh Chaudhuri dan Mohankumar, 2026, yang memakai validasi silang berstratifikasi tanpa data uji terpisah waktu; evaluasi lintas dataset pada URL dalam email melaporkan akurasi rata-rata di atas 94% pada empat himpunan uji sekunder, Yi dkk., 2025, lebih rendah daripada hasil hampir sempurna pada satu dataset meski tidak sebanding langsung); (2) lima *seed* dan hasil pembagian grup yang dipengaruhi grup besar; (3) analisis sensitivitas dengan sufiks privat pada pembentukan grup (misalnya memisahkan subdomain platform hosting) direncanakan tetapi belum dijalankan; (4) 18 fitur URL-only dihitung ulang dengan definisi sendiri; (5) hanya dua model dengan grid kecil; (6) biaya pengambilan halaman tidak diukur; dan (7) analisis post-hoc dirumuskan setelah data uji dibuka sehingga bersifat eksploratif.")
+P("Keterbatasan penelitian ini: (1) satu dataset tanpa uji pada data independen atau terpisah waktu, sehingga tidak ada klaim tentang domain baru (keterbatasan serupa diakui oleh Chaudhuri dan Mohankumar, 2026, yang memakai validasi silang berstratifikasi tanpa data uji terpisah waktu; evaluasi lintas dataset pada URL dalam email melaporkan akurasi rata-rata di atas 94% pada empat himpunan uji sekunder, Yi dkk., 2025, lebih rendah daripada hasil hampir sempurna pada satu dataset meski tidak sebanding langsung); (2) lima *seed*, hasil pembagian grup yang dipengaruhi grup besar, dan interval *bootstrap* yang me-resampel baris, bukan grup domain; (3) analisis sensitivitas dengan sufiks privat pada pembentukan grup (misalnya memisahkan subdomain platform hosting) direncanakan tetapi belum dijalankan; (4) 18 fitur URL-only dihitung ulang dengan definisi sendiri; (5) hanya dua model dengan grid kecil; (6) biaya pengambilan halaman tidak diukur; dan (7) analisis post-hoc dirumuskan setelah data uji dibuka sehingga bersifat eksploratif.")
 
 # ------------------------------------------------------------------ 5 kesimpulan
 H("5. Kesimpulan")
 P(f"Menjawab pertanyaan penelitian, selisih F1 antara pembagian acak dan pembagian per domain terdaftar tidak bertahan sebagai efek yang konsisten pada PhiUSIIL: pembagian per domain tidak mengubah F1 pada fitur lengkap ({sg(a_d_lr[0])} dan {sg(a_d_rf[0])}), sedangkan pada fitur URL-only selisihnya kecil dan tidak konsisten antar model ({sg(b_c_lr[0])} dan {sg(b_c_rf[0])}) serta dipengaruhi satu grup besar. "
-  f"Waktu inferensi total tidak berbeda berarti antara 18 dan 50 fitur ({n(h['B|LR']['median_ms'], 2)} dan {n(h['A|LR']['median_ms'], 2)} ms untuk Logistic Regression; {n(h['B|RF']['median_ms'], 1)} dan {n(h['A|RF']['median_ms'], 1)} ms untuk Random Forest), dan biaya pengambilan halaman tidak terukur. "
+  f"Waktu prediksi hampir sama untuk 18 dan 50 fitur ({n(h['B|LR']['median_ms'], 2)} dan {n(h['A|LR']['median_ms'], 2)} ms untuk Logistic Regression; {n(h['B|RF']['median_ms'], 1)} dan {n(h['A|RF']['median_ms'], 1)} ms untuk Random Forest), tetapi waktu total untuk 50 fitur tidak dapat disimpulkan karena biaya pengambilan halaman tidak terukur. "
   f"Aturan satu baris yang mengenali bentuk URL mencapai F1 {n(rule_ac.f1.mean(), 3)}, sehingga skor URL-only yang tinggi lebih tepat dibaca sebagai cerminan bentuk URL dalam dataset daripada kemampuan menggeneralisasi.")
 P("Penelitian lanjutan dapat menguji data independen dan terpisah waktu, mengendalikan komposisi grup besar, menjalankan analisis sufiks privat, dan mengukur biaya pengambilan halaman tanpa mengakses URL phishing aktif.")
 
@@ -344,9 +353,9 @@ P("Asisten AI digunakan untuk membantu menelusuri dan memverifikasi metadata lit
 H("Referensi")
 refs = [
     "Ahamed, T., Kakon, S. C., Farid, F. A., Uddin, J., & Abdul Karim, H. B. (2026). An integrated evaluation protocol for adversarial robustness, generalization, and explanation stability in URL-based phishing detection. *Frontiers in Computer Science, 8*, 1834407. https://doi.org/10.3389/fcomp.2026.1834407",
-    "Arp, D., Quiring, E., Pendlebury, F., Warnecke, A., Pierazzi, F., Wressnegger, C., Cavallaro, L., & Rieck, K. (2022). Dos and don'ts of machine learning in computer security. *USENIX Security Symposium*. https://kclpure.kcl.ac.uk/ws/files/158122594/2021_mlsec_accepted_USENIXSec22.pdf",
-    "Chaudhuri, A., & Mohankumar, B. (2026). Adversarial-resilient lightweight phishing url detection: Evaluating lexical & metadata features under evasion techniques. *Scientific Reports, 16*(1). https://doi.org/10.1038/s41598-026-60046-3",
-    "Ivandanizar, M., & Taufiq. (2026). Analysis of feature selection effects on phishing URL detection performance. *Global Advances in Science, Engineering & Technology, 2*(1). https://doi.org/10.62671/gaset.v2i1.362",
+    "Arp, D., Quiring, E., Pendlebury, F., Warnecke, A., Pierazzi, F., Wressnegger, C., Cavallaro, L., & Rieck, K. (2022). Dos and don'ts of machine learning in computer security. *Proceedings of the 31st USENIX Security Symposium* (hlm. 3971–3988). https://www.usenix.org/conference/usenixsecurity22/presentation/arp",
+    "Chaudhuri, A., & Mohankumar, B. (2026). Adversarial-resilient lightweight phishing url detection: Evaluating lexical & metadata features under evasion techniques. *Scientific Reports, 16*(1), 26668. https://doi.org/10.1038/s41598-026-60046-3",
+    "Ivandanizar, M., & Taufiq. (2026). Analysis of feature selection effects on phishing URL detection performance. *Global Advances in Science, Engineering & Technology, 2*(1), 63–73. https://doi.org/10.62671/gaset.v2i1.362",
     "Kapoor, S., & Narayanan, A. (2023). Leakage and the reproducibility crisis in machine-learning-based science. *Patterns, 4*(9), 100804. https://doi.org/10.1016/j.patter.2023.100804",
     "Karbalaie, A., Abtahi, F., & Häger, C. K. (2026). Participant-aware model validation for repeated-measures data: Comparative cross-validation study. *JMIR AI, 5*, e87728. https://doi.org/10.2196/87728",
     "pradhyumnaag30. (2025). *PhiUSIIL-Phishing-URL-Detection* [Kode sumber]. GitHub. https://github.com/pradhyumnaag30/PhiUSIIL-Phishing-URL-Detection",
