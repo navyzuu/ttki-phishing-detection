@@ -30,7 +30,7 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 - 67 kelompok berukuran >100 baris menampung 40.636 baris (17,2%); ukuran dan proporsi kelas tiap bagian split dilaporkan.
 
 ## D6. Split dan seed
-- Tiga bagian: train, validation, test, dengan rasio 70:15:15 (usulan, menunggu persetujuan kelompok).
+- Tiga bagian: train, validation, test, dengan rasio 70:15:15 (diputuskan 26 November 2026).
 - *Random split*: stratifikasi menurut kelas, seed 42; diulang pada seed 42 sampai 46.
 - Split per eTLD+1: seluruh URL satu kelompok berada pada satu bagian; seed 42 sampai 46.
 - Imputer, scaler, dan seleksi fitur hanya di-fit pada train.
@@ -39,16 +39,17 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 - Baseline: Logistic Regression dan Random Forest. Hyperparameter dipilih hanya pada validation dengan grid kecil yang dicatat sebelum dijalankan.
 - Test dihitung sekali setelah dokumen ini dan konfigurasi dibekukan.
 - Metrik: F1 (kelas positif phishing), precision, recall, ROC-AUC, PR-AUC, matriks konfusi, jumlah false negative. Interval 95% dengan *bootstrap* pada test.
-- Ukuran efek: selisih F1 antara *random split* dan split eTLD+1 dengan interval *bootstrap*; selisih dianggap berarti bila interval 95% tidak mencakup nol. Ambang praktis tambahan [ditentukan kelompok sebelum test].
+- Ukuran efek: selisih F1 antara *random split* dan split eTLD+1 dengan interval *bootstrap*; selisih dianggap berarti bila interval 95% tidak mencakup nol. Tidak ada ambang praktis tambahan; besar selisih dilaporkan apa adanya. Waktu inferensi dibandingkan dengan cara yang sama (interval *bootstrap* atas pengulangan).
 
 ## D8. Pengukuran waktu inferensi
 - Waktu total = ekstraksi fitur dari string URL (implementasi sendiri di `src/`) + prediksi, per URL, median dari beberapa pengulangan pada mesin yang sama.
 - Fitur konten HTML tidak dapat diekstrak dari CSV; tidak ada URL phishing yang diakses. Biayanya dicatat sebagai keterbatasan, bukan diestimasi tanpa dasar.
 
-## D9. Pertanyaan yang belum diputuskan
-- Rasio split 70:15:15 dan jumlah pengulangan seed.
-- Ambang praktis selisih F1 dan latensi.
-- Lisensi kode repositori (LICENSE).
+## D9. Status keputusan (26 November 2026)
+- Rasio split 70:15:15 dan seed 42 sampai 46: diputuskan.
+- Ambang praktis selisih F1 dan latensi: tidak ada; hanya kriteria interval 95% (D7).
+- Lisensi kode: MIT (`LICENSE`). Dataset tetap berlisensi sendiri (`data/README.md`).
+- Masih kosong dan tidak menghalangi eksperimen: identitas Anggota 2 dan teks lisensi dari halaman Kaggle.
 
 ## Perubahan
 (Belum ada.)
