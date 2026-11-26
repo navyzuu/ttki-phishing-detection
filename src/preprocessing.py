@@ -26,8 +26,10 @@ CORPUS_DERIVED = ["URLSimilarityIndex", "CharContinuationRate", "TLDLegitimatePr
 DIKECUALIKAN = ["FILENAME", "URL", "Domain", "TLD", "Title", "label"]  # D3
 
 
-def muat_bersih(csv=CSV, private_suffix=False):
-    """Muat CSV, buang URL duplikat (D2), tambah kolom `phish` (D1) dan `grup` (D5)."""
+def muat_bersih(csv=CSV, private_suffix=False, cache=Path("data/interim/df_bersih.pkl")):
+    """Muat CSV, buang URL duplikat (D2), tambah kolom `phish` (D1) dan `grup` (D5). Hasil di-cache."""
+    if cache is not None and not private_suffix and Path(cache).exists():
+        return pd.read_pickle(cache)
     df = pd.read_csv(csv)
     df = df.drop_duplicates(subset="URL", keep="first").reset_index(drop=True)
     df["phish"] = (df["label"] == 0).astype(int)  # kelas positif = phishing
@@ -37,6 +39,9 @@ def muat_bersih(csv=CSV, private_suffix=False):
     peta = {h: ext(h).top_domain_under_public_suffix for h in host.drop_duplicates()}
     grup = host.map(peta)
     df["grup"] = grup.where(grup != "", host)  # eTLD+1 kosong: pakai host penuh (D5)
+    if cache is not None and not private_suffix:
+        Path(cache).parent.mkdir(parents=True, exist_ok=True)
+        df.to_pickle(cache)
     return df
 
 
