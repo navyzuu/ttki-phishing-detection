@@ -178,7 +178,7 @@ def figure(path, width_in, cap):
 # ------------------------------------------------------------------ judul dan abstrak
 d.add_paragraph("Evaluasi Ketahanan Deteksi URL Phishing terhadap Pembagian Data per Domain dan Pengurangan Fitur pada Dataset PhiUSIIL", style="Heading 1")
 P("Evaluating the Robustness of Machine Learning-Based Phishing URL Detection Using URL Feature Selection and Domain-Aware Validation", italic=True)
-P("Navyz Abdillah Zikhav, Anggota 2 (belum ditentukan) · Program Sarjana Terapan Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS) · 26 November 2026")
+P("Navyz Abdillah Zikhav, Adryan Fahmi Ramadhan · Program Sarjana Terapan Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS) · 26 November 2026")
 
 abstrak = (
     f"Deteksi URL phishing pada dataset PhiUSIIL sering dilaporkan dengan F1 mendekati 1, tetapi belum jelas apakah angka itu bertahan setelah data dibagi per domain dan setelah fitur yang tidak berasal dari URL dikeluarkan. "
