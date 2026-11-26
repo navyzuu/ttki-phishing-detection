@@ -12,7 +12,7 @@ Berkas CSV tidak disertakan di repositori (lihat `.gitignore`). Unduh sendiri la
 | SHA-256 | `a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6` |
 | Tanggal unduh | 26 November 2026 (dikonfirmasi pengguna) |
 | Lisensi (UCI) | CC BY 4.0, tertera di halaman UCI id 967 (disumbangkan 3 Maret 2024). Wajib mencantumkan kredit kepada pencipta. |
-| Lisensi (Kaggle) | CC BY-SA 4.0 (tercantum pada bagian Metadata, License, halaman Kaggle; tautan https://creativecommons.org/licenses/by-sa/4.0/). Dicatat 26 November 2026. |
+| Lisensi (Kaggle) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (teks persis pada Metadata → License, diverifikasi lewat [metadata Kaggle](https://www.kaggle.com/api/v1/datasets/view/kaggleprollc/phishing-url-websites-dataset-phiusiil) pada 26 November 2026). |
 | Provenance (Kaggle) | Sumber yang tercantum pada metadata Kaggle: halaman UCI id 967 (tautan di atas). Metodologi pengumpulan dan DOI dataset tidak diisi pada halaman Kaggle. |
 | Ukuran | 235.795 baris, 56 kolom (54 fitur, `FILENAME`, `label`) |
 | Target | `label`: **1 = legitimate, 0 = phishing** (diverifikasi dari data; lihat `docs/decisions.md` D1) |
