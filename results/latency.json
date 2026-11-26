@@ -1,0 +1,66 @@
+{
+  "mesin": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "prosesor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel"
+  },
+  "catatan": "satu URL per panggilan; predict_proba satu thread; 500 URL x 5 pengulangan; median dan p95",
+  "hasil": {
+    "B|LR": {
+      "fitur": "url_only",
+      "mencakup": "ekstraksi + prediksi",
+      "median_ms": 0.6711000023642555,
+      "p95_ms": 0.9423250012332572,
+      "median_tiap_pengulangan_ms": [
+        0.6647999980486929,
+        0.6682000021100976,
+        0.6693500035908073,
+        0.6697999997413717,
+        0.6819500049459748
+      ]
+    },
+    "A|LR": {
+      "fitur": "semua",
+      "mencakup": "prediksi saja (batas bawah)",
+      "median_ms": 0.632499999483116,
+      "p95_ms": 1.0087449976708738,
+      "median_tiap_pengulangan_ms": [
+        0.7664000004297122,
+        0.7622500052093528,
+        0.6216499969013967,
+        0.6270499943639152,
+        0.6206499965628609
+      ]
+    },
+    "B|RF": {
+      "fitur": "url_only",
+      "mencakup": "ekstraksi + prediksi",
+      "median_ms": 25.98990000115009,
+      "p95_ms": 28.46432499063666,
+      "median_tiap_pengulangan_ms": [
+        26.187600000412203,
+        25.79649999825051,
+        25.77124999515945,
+        26.10475000255974,
+        26.155599996855017
+      ]
+    },
+    "A|RF": {
+      "fitur": "semua",
+      "mencakup": "prediksi saja (batas bawah)",
+      "median_ms": 26.222350003081374,
+      "p95_ms": 28.77550500270445,
+      "median_tiap_pengulangan_ms": [
+        26.10129999811761,
+        26.2445500047761,
+        26.028150008642115,
+        26.224950001051184,
+        26.56564999051625
+      ]
+    }
+  },
+  "ekstraksi_saja_url_only_ms": {
+    "median": 0.01900000643217936,
+    "p95": 0.04410000110510737
+  }
+}
