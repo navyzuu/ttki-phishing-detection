@@ -13,20 +13,20 @@ Mata kuliah: Tata Tulis Karya Ilmiah (TTKI), Topik P1. Repositori: https://githu
 
 ## 2. Rincian kontribusi per tahap
 
-Kolom "Asisten AI" mencatat pekerjaan yang dilakukan oleh asisten AI atas permintaan anggota. Kolom lain mencatat arahan, bahan, serta pekerjaan anggota sendiri. Tanda `—` pada kolom Anggota 2 menandai kontribusi yang masih perlu dikonfirmasi.
+Kolom "Asisten AI" mencatat pekerjaan yang dilakukan asisten AI atas arahan anggota. Tanda `—` berarti tidak ada catatan kontribusi pada tahap itu; anggota yang bersangkutan mengisi atau mengonfirmasinya.
 
 | Tahap | Pekerjaan | Anggota 1 | Anggota 2 | Asisten AI |
 |---|---|---|---|---|
 | Pemilihan topik | Memilih P1 (phishing URL) dan dataset PhiUSIIL | memilih | — | - |
-| Literatur | Menelusuri dan memverifikasi metadata makalah lewat basis data publik; membaca bagian relevan makalah akses terbuka | memutuskan kebijakan sumber gratis; menyetujui daftar | meminta pemeriksaan sumber terbuka dalam Issue #1 | menelusuri dan meringkas sumber, mencocokkan klaim draf, memperbarui `tingkat_baca`, serta memeriksa 14 entri RIS yang diimpor ke Zotero |
-| Rumusan masalah | Menyusun RQ dan hipotesis setelah menemukan bahwa studi 2026 sudah menjalankan sebagian | memilih posisi "replikasi kritis" | — | mengusulkan opsi, menyusun teks |
-| Data | Mengunduh dataset dari Kaggle | mengunduh | meminta verifikasi salinan Kaggle untuk reproduksi | mengunduh ulang CSV, memeriksa SHA-256 dan lisensi, serta menjalankan `src/audit_data.py` |
+| Literatur | Menelusuri dan memverifikasi metadata makalah; membaca bagian relevan makalah akses terbuka | menetapkan kebijakan sumber gratis; menyetujui daftar | memeriksa sumber akses terbuka dan memperbarui `tingkat_baca` (Issue #1 bagian B, PR #2), dengan bantuan AI | menelusuri, mengunduh, dan meringkas sumber; mencocokkan klaim draf |
+| Rumusan masalah | Menyusun RQ dan hipotesis setelah menemukan bahwa studi 2026 sudah menjalankan sebagian | memilih posisi "replikasi kritis" | — | mengusulkan opsi dan menyusun teks |
+| Data | Mengunduh dan mengaudit dataset | mengunduh dari Kaggle | memverifikasi salinan Kaggle (SHA-256, lisensi) (Issue #1 bagian A.2 dan B), dengan bantuan AI | mengaudit data (`src/audit_data.py`) |
 | Metodologi | Keputusan split, kelompok fitur, metrik, pembekuan konfigurasi (`docs/decisions.md`) | menyetujui keputusan terbuka (rasio split, lisensi) | — | merancang dan menulis |
-| Kode | `src/*.py`, notebook, `environment-freeze.txt` | meninjau hasil | meminta audit pipeline, fitur, dan split | menulis dan menjalankan kode, serta mengaudit pemisahan train, validation, dan test |
-| Eksperimen | Tuning, fase final, ablation, waktu inferensi, dan reproduksi | memberi arahan | meminta reproduksi audit data, split, dan notebook | menjalankan dan melaporkan eksperimen. Untuk Issue #1, mencocokkan dua hasil JSON serta menjalankan tiga notebook |
-| Penulisan | Draf paper IMRAD (`paper/draft.docx`) | meninjau, menyetujui pembingkaian | menyediakan Buku Petunjuk Proyek TTKI untuk audit Bab 10.2 | menulis draf dari `results/`, memeriksa checklist, dan memverifikasi jumlah halaman |
-| Repositori | Membuat repositori publik, lisensi, issue | menyetujui visibilitas publik | meminta pengerjaan Issue #1 dan pembaruan laporan di PR #2 | mengerjakan penyiapan repositori, melaporkan audit di Issue #1, dan mengajukan perubahan di PR #2 |
-| Peer review | Minggu 5 | [diisi] | menunggu sesi peer review bersama | menyiapkan tabel respons reviewer |
+| Kode | `src/*.py`, notebook, `environment-freeze.txt` | meninjau hasil | mengaudit pipeline, fitur, dan split terhadap kebocoran data (Issue #1 bagian A.1), dengan bantuan AI | menulis dan menjalankan kode |
+| Eksperimen | Tuning, fase final, ablation, waktu inferensi, reproduksi repositori referensi | memberi arahan | mereproduksi audit data, pembagian data, dan notebook (Issue #1 bagian A.2), dengan bantuan AI | menjalankan dan melaporkan eksperimen |
+| Penulisan | Draf paper IMRAD (`paper/draft.docx`) | meninjau; menyetujui pembingkaian | mengaudit draf terhadap checklist Bab 10.2 dan mencatat temuan (Issue #1 bagian B), dengan bantuan AI | menulis draf dari `results/`; memperbaiki paper dan README berdasarkan temuan audit |
+| Repositori | Repositori publik, lisensi, issue, pull request | menyetujui visibilitas publik | mengajukan PR #2 | menyiapkan repositori |
+| Peer review | Minggu 5 | [diisi] | [diisi] | menyiapkan tabel respons reviewer |
 
 ## 3. Pemakaian asisten AI
 
