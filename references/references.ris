@@ -1,0 +1,242 @@
+TY  - JOUR
+DO  - 10.1016/j.cose.2023.103545
+UR  - http://dx.doi.org/10.1016/j.cose.2023.103545
+TI  - PhiUSIIL: A diverse security profile empowered phishing URL detection framework based on similarity index and incremental learning
+T2  - Computers & Security
+AU  - Prasad, Arvind
+AU  - Chandra, Shalini
+PY  - 2024
+DA  - 2024/01
+PB  - Elsevier BV
+SP  - 103545
+VL  - 136
+SN  - 0167-4048
+ER  -
+
+TY  - JOUR
+DO  - 10.1002/spy2.70175
+UR  - http://dx.doi.org/10.1002/spy2.70175
+TI  - Phishing URL Detection and Interpretability With Machine Learning: A Cross‐Dataset Approach
+T2  - SECURITY AND PRIVACY
+AU  - Yi, Liyan
+AU  - Omotosho, Adebayo
+AU  - Balogun, Hamed
+PY  - 2025
+DA  - 2025/12/29
+PB  - Wiley
+IS  - 1
+VL  - 9
+SN  - 2475-6725
+SN  - 2475-6725
+ER  -
+
+TY  - JOUR
+DO  - 10.1016/j.fraope.2026.100579
+UR  - http://dx.doi.org/10.1016/j.fraope.2026.100579
+TI  - Ensemble transfer learning for cross-dataset phishing detection
+T2  - Franklin Open
+AU  - Henry, Saviour
+AU  - Stephen, Bliss Utibe-Abasi
+AU  - Asuquo, Philip
+PY  - 2026
+DA  - 2026/06
+PB  - Elsevier BV
+SP  - 100579
+VL  - 15
+SN  - 2773-1863
+ER  -
+
+TY  - JOUR
+DO  - 10.1038/s41598-026-60046-3
+UR  - http://dx.doi.org/10.1038/s41598-026-60046-3
+TI  - Adversarial-resilient lightweight phishing url detection: Evaluating lexical & metadata features under evasion techniques
+T2  - Scientific Reports
+AU  - Chaudhuri, Ayan
+AU  - B, Mohankumar
+PY  - 2026
+DA  - 2026/07/06
+PB  - Springer Science and Business Media LLC
+IS  - 1
+VL  - 16
+SN  - 2045-2322
+ER  -
+
+TY  - JOUR
+DO  - 10.1016/j.comcom.2021.04.023
+UR  - http://dx.doi.org/10.1016/j.comcom.2021.04.023
+TI  - A novel approach for phishing URLs detection using lexical based machine learning in a real-time environment
+T2  - Computer Communications
+AU  - Gupta, Brij B.
+AU  - Yadav, Krishna
+AU  - Razzak, Imran
+AU  - Psannis, Konstantinos
+AU  - Castiglione, Arcangelo
+AU  - Chang, Xiaojun
+PY  - 2021
+DA  - 2021/07
+PB  - Elsevier BV
+SP  - 47-57
+VL  - 175
+SN  - 0140-3664
+ER  -
+
+TY  - JOUR
+DO  - 10.1109/access.2023.3252366
+UR  - http://dx.doi.org/10.1109/access.2023.3252366
+TI  - Phishing Detection System Through Hybrid Machine Learning Based on URL
+T2  - IEEE Access
+AU  - Karim, Abdul
+AU  - Shahroz, Mobeen
+AU  - Mustofa, Khabib
+AU  - Belhaouari, Samir Brahim
+AU  - Joga, S. Ramana Kumar
+PY  - 2023
+PB  - Institute of Electrical and Electronics Engineers (IEEE)
+SP  - 36805-36822
+VL  - 11
+SN  - 2169-3536
+ER  -
+
+TY  - JOUR
+DO  - 10.1016/j.patter.2023.100804
+UR  - http://dx.doi.org/10.1016/j.patter.2023.100804
+TI  - Leakage and the reproducibility crisis in machine-learning-based science
+T2  - Patterns
+AU  - Kapoor, Sayash
+AU  - Narayanan, Arvind
+PY  - 2023
+DA  - 2023/09
+PB  - Elsevier BV
+SP  - 100804
+IS  - 9
+VL  - 4
+SN  - 2666-3899
+ER  -
+
+TY  - JOUR
+DO  - 10.1111/ecog.02881
+UR  - http://dx.doi.org/10.1111/ecog.02881
+TI  - Cross‐validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure
+T2  - Ecography
+AU  - Roberts, David R.
+AU  - Bahn, Volker
+AU  - Ciuti, Simone
+AU  - Boyce, Mark S.
+AU  - Elith, Jane
+AU  - Guillera‐Arroita, Gurutzeta
+AU  - Hauenstein, Severin
+AU  - Lahoz‐Monfort, José J.
+AU  - Schröder, Boris
+AU  - Thuiller, Wilfried
+AU  - Warton, David I.
+AU  - Wintle, Brendan A.
+AU  - Hartig, Florian
+AU  - Dormann, Carsten F.
+PY  - 2017
+DA  - 2017/03/03
+PB  - Wiley
+SP  - 913-929
+IS  - 8
+VL  - 40
+SN  - 0906-7590
+SN  - 1600-0587
+ER  -
+
+TY  - JOUR
+DO  - 10.2196/87728
+UR  - http://dx.doi.org/10.2196/87728
+TI  - Participant-Aware Model Validation for Repeated-Measures Data: Comparative Cross-Validation Study
+T2  - JMIR AI
+AU  - Karbalaie, Abdolamir
+AU  - Abtahi, Farhad
+AU  - Häger, Charlotte K
+PY  - 2026
+DA  - 2026/04/30
+PB  - JMIR Publications Inc.
+SP  - e87728
+VL  - 5
+SN  - 2817-1705
+ER  -
+
+TY  - JOUR
+DO  - 10.3389/fcomp.2026.1834407
+UR  - http://dx.doi.org/10.3389/fcomp.2026.1834407
+TI  - An integrated evaluation protocol for adversarial robustness, generalization, and explanation stability in URL-based phishing detection
+T2  - Frontiers in Computer Science
+AU  - Ahamed, Tanvir
+AU  - Kakon, Shawon Chakrabarty
+AU  - Farid, Fahmid Al
+AU  - Uddin, Jia
+AU  - Abdul Karim, Hezerul Bin
+PY  - 2026
+DA  - 2026/08/31
+PB  - Frontiers Media SA
+VL  - 8
+SN  - 2624-9898
+ER  -
+
+TY  - JOUR
+DO  - 10.1186/s42400-022-00126-9
+UR  - http://dx.doi.org/10.1186/s42400-022-00126-9
+TI  - Phishing website prediction using base and ensemble classifier techniques with cross-validation
+T2  - Cybersecurity
+AU  - Awasthi, Anjaneya
+AU  - Goel, Noopur
+PY  - 2022
+DA  - 2022/11/02
+PB  - Springer Science and Business Media LLC
+IS  - 1
+VL  - 5
+SN  - 2523-3246
+ER  -
+
+TY  - JOUR
+DO  - 10.3390/s23187760
+UR  - http://dx.doi.org/10.3390/s23187760
+TI  - Classification of Malicious URLs Using Machine Learning
+T2  - Sensors
+AU  - Abad, Shayan
+AU  - Gholamy, Hassan
+AU  - Aslani, Mohammad
+PY  - 2023
+DA  - 2023/09/08
+PB  - MDPI AG
+SP  - 7760
+IS  - 18
+VL  - 23
+SN  - 1424-8220
+ER  -
+
+TY  - JOUR
+DO  - 10.3390/sym16020248
+UR  - http://dx.doi.org/10.3390/sym16020248
+TI  - AntiPhishStack: LSTM-Based Stacked Generalization Model for Optimized Phishing URL Detection
+T2  - Symmetry
+AU  - Aslam, Saba
+AU  - Aslam, Hafsa
+AU  - Manzoor, Arslan
+AU  - Chen, Hui
+AU  - Rasool, Abdur
+PY  - 2024
+DA  - 2024/02/17
+PB  - MDPI AG
+SP  - 248
+IS  - 2
+VL  - 16
+SN  - 2073-8994
+ER  -
+
+TY  - JOUR
+DO  - 10.54097/6g69az84
+UR  - http://dx.doi.org/10.54097/6g69az84
+TI  - Low-latency Malicious URL Detection based on Lexical and Statistical Features
+T2  - Frontiers in Computing and Intelligent Systems
+AU  - Huang, Siyu
+PY  - 2026
+DA  - 2026/09/28
+PB  - Darcy & Roy Press Co. Ltd.
+SP  - 34-40
+IS  - 1
+VL  - 18
+SN  - 2832-6024
+ER  -

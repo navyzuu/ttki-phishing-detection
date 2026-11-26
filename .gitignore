@@ -1,0 +1,9 @@
+# Data mentah besar dan berkas lokal tidak masuk repositori
+data/raw/
+*.csv.zip
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+# Kredensial
+kaggle.json
+.env

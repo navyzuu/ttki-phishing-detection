@@ -1,0 +1,50 @@
+{
+  "berkas": "data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6",
+  "baris": 235795,
+  "kolom": 56,
+  "missing_total": 0,
+  "inf_total": 0,
+  "label_asli": {
+    "1_legitimate": 134850,
+    "0_phishing": 100945
+  },
+  "proporsi_phishing": 0.4281,
+  "url_duplikat_baris": 850,
+  "url_unik": 235370,
+  "url_duplikat_label_konflik": 0,
+  "host_unik": 220086,
+  "etld1_unik": 175353,
+  "etld1_kosong_baris": 608,
+  "etld1_grup_campuran": 120,
+  "etld1_grup_terbesar": {
+    "web.app": 5754,
+    "firebaseapp.com": 5594,
+    "repl.co": 3754,
+    "weeblysite.com": 3097,
+    "ipfs.io": 1559,
+    "workers.dev": 1438,
+    "square.site": 1199,
+    "dweb.link": 975
+  },
+  "etld1_grup_lebih_100_baris": 67,
+  "etld1_baris_di_grup_lebih_100": 40636,
+  "jumlah_fitur_numerik": 50,
+  "kelompok_fitur": {
+    "leksikal_url": 18,
+    "turunan_korpus": 4,
+    "konten_html": 28
+  },
+  "urlsimilarityindex_legit_sama_100": 1.0,
+  "urlsimilarityindex_phishing_kurang_100": 0.9922135816533756,
+  "auc_satu_fitur_leksikal_maks": 0.8238,
+  "auc_satu_fitur_di_atas_0_95": {
+    "URLSimilarityIndex": 0.9961,
+    "LineOfCode": 0.9903,
+    "NoOfExternalRef": 0.988,
+    "NoOfImage": 0.9796,
+    "NoOfSelfRef": 0.9725,
+    "NoOfJS": 0.9708,
+    "NoOfCSS": 0.9576
+  }
+}
