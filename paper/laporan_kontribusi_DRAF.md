@@ -18,13 +18,13 @@ Kolom "Asisten AI" mencatat pekerjaan yang dilakukan asisten AI atas arahan angg
 | Tahap | Pekerjaan | Anggota 1 | Anggota 2 | Asisten AI |
 |---|---|---|---|---|
 | Pemilihan topik | Memilih P1 (phishing URL) dan dataset PhiUSIIL | memilih | — | - |
-| Literatur | Menelusuri dan memverifikasi metadata makalah; membaca bagian relevan makalah akses terbuka | menetapkan kebijakan sumber gratis; menyetujui daftar | memeriksa sumber akses terbuka dan memperbarui `tingkat_baca` (Issue #1 bagian B, PR #2), dengan bantuan AI | menelusuri, mengunduh, dan meringkas sumber; mencocokkan klaim draf |
+| Literatur | Menelusuri dan memverifikasi metadata makalah; membaca bagian relevan makalah akses terbuka | menetapkan kebijakan sumber gratis; menyetujui daftar | memeriksa sumber akses terbuka dan memperbarui `tingkat_baca` (Issue #1 bagian B, PR #2) | menelusuri, mengunduh, dan meringkas sumber; mencocokkan klaim draf |
 | Rumusan masalah | Menyusun RQ dan hipotesis setelah menemukan bahwa studi 2026 sudah menjalankan sebagian | memilih posisi "replikasi kritis" | — | mengusulkan opsi dan menyusun teks |
-| Data | Mengunduh dan mengaudit dataset | mengunduh dari Kaggle | memverifikasi salinan Kaggle (SHA-256, lisensi) (Issue #1 bagian A.2 dan B), dengan bantuan AI | mengaudit data (`src/audit_data.py`) |
+| Data | Mengunduh dan mengaudit dataset | mengunduh dari Kaggle | memverifikasi salinan Kaggle (SHA-256, lisensi) (Issue #1 bagian A.2 dan B) | mengaudit data (`src/audit_data.py`) |
 | Metodologi | Keputusan split, kelompok fitur, metrik, pembekuan konfigurasi (`docs/decisions.md`) | menyetujui keputusan terbuka (rasio split, lisensi) | — | merancang dan menulis |
-| Kode | `src/*.py`, notebook, `environment-freeze.txt` | meninjau hasil | mengaudit pipeline, fitur, dan split terhadap kebocoran data (Issue #1 bagian A.1), dengan bantuan AI | menulis dan menjalankan kode |
-| Eksperimen | Tuning, fase final, ablation, waktu inferensi, reproduksi repositori referensi | memberi arahan | mereproduksi audit data, pembagian data, dan notebook (Issue #1 bagian A.2), dengan bantuan AI | menjalankan dan melaporkan eksperimen |
-| Penulisan | Draf paper IMRAD (`paper/draft.docx`) | meninjau; menyetujui pembingkaian | mengaudit draf terhadap checklist Bab 10.2 dan mencatat temuan (Issue #1 bagian B), dengan bantuan AI | menulis draf dari `results/`; memperbaiki paper dan README berdasarkan temuan audit |
+| Kode | `src/*.py`, notebook, `environment-freeze.txt` | meninjau hasil | mengaudit pipeline, fitur, dan split terhadap kebocoran data (Issue #1 bagian A.1) | menulis dan menjalankan kode |
+| Eksperimen | Tuning, fase final, ablation, waktu inferensi, reproduksi repositori referensi | memberi arahan | mereproduksi audit data, pembagian data, dan notebook (Issue #1 bagian A.2) | menjalankan dan melaporkan eksperimen |
+| Penulisan | Draf paper IMRAD (`paper/draft.docx`) | meninjau; menyetujui pembingkaian | mengaudit draf terhadap checklist Bab 10.2 dan mencatat temuan (Issue #1 bagian B) | menulis draf dari `results/`; memperbaiki paper dan README berdasarkan temuan audit |
 | Repositori | Repositori publik, lisensi, issue, pull request | menyetujui visibilitas publik | mengajukan PR #2 | menyiapkan repositori |
 | Peer review | Minggu 5 | [diisi] | [diisi] | menyiapkan tabel respons reviewer |
 
@@ -32,7 +32,7 @@ Kolom "Asisten AI" mencatat pekerjaan yang dilakukan asisten AI atas arahan angg
 
 Asisten AI dipakai selama pekerjaan ini untuk: menelusuri dan memverifikasi metadata literatur; membaca makalah akses terbuka; menulis dan menjalankan kode; menyusun draf proposal, naskah, dan dokumentasi. Seluruh angka pada naskah berasal dari eksperimen yang dijalankan pada repositori ini (berkas `results/`). Rujukan diperiksa terhadap DOI atau sumber aslinya; beberapa makalah hanya dibaca sebagian dan hal ini dicatat pada `references/literature_matrix.csv`. Anggota bertanggung jawab atas isi akhir.
 
-Untuk bagian Anggota 2, bukti pekerjaan yang dijalankan dengan bantuan AI tercatat di [audit teknis](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7184908006), [reproduksi](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7185134388), dan [literatur serta QA](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7185134841).
+Pekerjaan Anggota 2 pada Issue #1 (audit teknis, reproduksi, serta literatur dan QA) dikerjakan dengan bantuan asisten AI; buktinya tercatat di [audit teknis](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7184908006), [reproduksi](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7185134388), dan [literatur serta QA](https://github.com/navyzuu/ttki-phishing-detection/issues/1#issuecomment-7185134841).
 
 [Anggota: tambahkan bagian mana yang Anda periksa sendiri dan bagian mana yang Anda tulis ulang.]
 
