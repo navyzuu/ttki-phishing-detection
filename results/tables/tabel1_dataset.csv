@@ -1,0 +1,8 @@
+﻿Item,Nilai,Catatan
+Baris mentah,235795,
+URL unik setelah dedup,235370,
+Proporsi phishing (setelah dedup),"42,71%",kelas positif
+Fitur numerik (leksikal / turunan korpus / konten HTML),50 (18 / 4 / 28),
+Grup eTLD+1 unik,175509,608 baris tanpa eTLD+1 memakai host penuh
+Split acak (seed 42): train / validation / test,164759 / 35305 / 35306,"phishing test 42,7%; grup tumpang tindih train-test: 2211"
+Split grup eTLD+1 (seed 42): train / validation / test,165164 / 35103 / 35103,"phishing test 42,4%; grup tumpang tindih train-test: 0"

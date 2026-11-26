@@ -1,0 +1,6 @@
+﻿Skenario (fitur),Model,Cakupan waktu,Median (ms),p95 (ms)
+B (url_only),LR,ekstraksi + prediksi,"0,671","0,942"
+A (semua),LR,prediksi saja (batas bawah),"0,632","1,009"
+B (url_only),RF,ekstraksi + prediksi,"25,990","28,464"
+A (semua),RF,prediksi saja (batas bawah),"26,222","28,776"
+B (ekstraksi saja),-,ekstraksi 18 fitur dari string URL,"0,019","0,044"

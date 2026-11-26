@@ -1,0 +1,7 @@
+﻿Ancaman,Bukti,Dampak,Penanganan
+Artefak bentuk URL,"100% URL legitimate berbentuk https://www.<domain> tanpa path; aturan satu baris F1 ≈ 0,995",F1 URL-only tinggi tidak membuktikan deteksi phishing nyata,Aturan dilaporkan sebagai baseline diagnostik (post-hoc)
+Definisi fitur leksikal,Kolom CSV tidak dapat direproduksi persis dari string URL,A dan B berbeda juga pada definisi fitur,Tingkat kecocokan dilaporkan (results/feature_agreement.json)
+Fitur turunan korpus,"URLSimilarityIndex = 100 pada seluruh URL legitimate (AUC satu fitur 0,996)",Skenario fitur lengkap mendekati sempurna,Dilaporkan; tidak dipakai pada skenario URL-only
+Efek langit-langit,"F1 skenario A dan D ≈ 1,0",Selisih antar split tidak dapat dideteksi,Interval bootstrap dan lima seed
+Biaya konten HTML,Pengambilan halaman tidak dapat direproduksi dari CSV,Waktu skenario A hanya batas bawah,Dicatat sebagai keterbatasan; tidak mengakses URL phishing
+Satu dataset,Hanya PhiUSIIL,Generalisasi terbatas; tidak ada hold-out temporal,Tidak menarik kesimpulan tentang domain baru di dunia nyata

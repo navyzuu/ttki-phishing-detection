@@ -75,3 +75,4 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 
 ## Log eksekusi
 - 26 November 2026, 11:09: `python src/run_experiments.py final` dijalankan satu kali dengan `results/config_beku.json` hasil commit `ee8f601`. Data test baru dibuka pada eksekusi ini. Hasil tersimpan di `results/metrics.csv` (100 baris) dan tidak diubah sesudahnya. Tidak ada konfigurasi, fitur, atau split yang diubah setelah melihat hasil test.
+- 26 November 2026, sesudah test dibuka: dua analisis post-hoc deskriptif (dilabeli demikian di paper). (1) Aturan satu baris bentuk URL (Perubahan 3). (2) Pada skenario C Random Forest seed 44, F1 test 0,9812 (seed lain 0,993 sampai 0,996) dengan 534 false negative; 452 di antaranya (84,6%) berasal dari grup `web.app`, yang seluruhnya (5.718 URL, semuanya phishing) jatuh ke test pada seed itu (`src/analyze_outlier.py`, `results/analysis_outlier_seed44.json`). Tidak ada konfigurasi yang diubah karena temuan ini.

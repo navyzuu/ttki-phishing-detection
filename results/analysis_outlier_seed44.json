@@ -1,0 +1,15 @@
+{
+  "fn_total": 534,
+  "grup_teratas": "web.app",
+  "fn_dari_grup_teratas": 452,
+  "pangsa_fn_grup_teratas": 0.846,
+  "baris_grup_di_test": 5718,
+  "phishing_di_grup_di_test": 5718,
+  "ukuran_grup_di_seluruh_data": 5718,
+  "grup_penyumbang_fn_berikutnya": {
+    "workers.dev": 4,
+    "myshopify.com": 3,
+    "mefound.com": 3,
+    "jimdofree.com": 2
+  }
+}
