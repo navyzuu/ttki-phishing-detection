@@ -1,0 +1,14 @@
+{
+  "acak": {
+    "jaccard_test_antar_seed_min": 0.0799,
+    "jaccard_test_antar_seed_maks": 0.083
+  },
+  "grup": {
+    "jaccard_test_antar_seed_min": 0.0616,
+    "jaccard_test_antar_seed_maks": 0.1508
+  },
+  "grup_shuffle": {
+    "jaccard_test_antar_seed_min": 0.0585,
+    "jaccard_test_antar_seed_maks": 0.0846
+  }
+}
