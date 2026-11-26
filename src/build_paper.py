@@ -41,6 +41,8 @@ MA = pd.read_csv(R / "metrics_ablasi.csv")
 SEL = pd.read_csv(R / "analysis_selisih.csv")
 SELA = pd.read_csv(R / "analysis_ablasi.csv")
 TT = pd.concat([M[M.bagian == "test"], MA[MA.bagian == "test"]])
+VV = pd.concat([M[M.bagian == "validation"], MA[MA.bagian == "validation"]])
+fv = VV.groupby(["skenario", "model"]).f1.mean()
 fm = TT.groupby(["skenario", "model"]).f1.mean()
 fsd = TT.groupby(["skenario", "model"]).f1.std()
 fmin = TT.groupby(["skenario", "model"]).f1.min()
@@ -264,12 +266,12 @@ for sk in ["A", "B", "C", "D", "E", "F"]:
     for mo in ["LR", "RF"]:
         x = TT[(TT.skenario == sk) & (TT.model == mo)]
         rows2.append([nama_sk[sk] if mo == "LR" else "", {"LR": "Logistic Regression", "RF": "Random Forest"}[mo],
-                      f"{n(x.f1.mean(), 4)} ± {n(x.f1.std(), 4)}", n(x.precision.mean(), 4), n(x.recall.mean(), 4), n(x.roc_auc.mean(), 4), n(x.fn.mean(), 1)])
+                      n(fv[sk, mo], 4), f"{n(x.f1.mean(), 4)} ± {n(x.f1.std(), 4)}", n(x.precision.mean(), 4), n(x.recall.mean(), 4), n(x.roc_auc.mean(), 4), n(x.fn.mean(), 1)])
 for sk, lab in (("R_acak", "Aturan bentuk URL† (acak)"), ("R_grup", "Aturan bentuk URL† (grup)")):
     x = M[(M.skenario == sk) & (M.bagian == "test")]
-    rows2.append([lab, "tanpa parameter", f"{n(x.f1.mean(), 4)} ± {n(x.f1.std(), 4)}", n(x.precision.mean(), 4), n(x.recall.mean(), 4), n(x.roc_auc.mean(), 4), n(x.fn.mean(), 1)])
-caption(f"Tabel 2. Hasil pada data uji (rata-rata ± simpangan baku lima *seed*; kelas positif phishing; n uji sekitar {i(TT[TT.skenario=='A'].n.mean())} pada pembagian acak dan {i(TT[TT.skenario=='C'].n.mean())} pada pembagian grup). † = analisis post-hoc.")
-table(["Skenario", "Model", "F1", "Precision", "Recall", "ROC-AUC", "FN"], rows2, [4.6, 2.9, 2.6, 1.7, 1.7, 1.7, 1.0], size=9)
+    rows2.append([lab, "tanpa parameter", n(fv[sk, "ATURAN"], 4), f"{n(x.f1.mean(), 4)} ± {n(x.f1.std(), 4)}", n(x.precision.mean(), 4), n(x.recall.mean(), 4), n(x.roc_auc.mean(), 4), n(x.fn.mean(), 1)])
+caption("Tabel 2. F1 pada data validasi dan metrik pada data uji (rata-rata lima *seed*; F1 uji ± simpangan baku). Kelas positif: phishing. Precision = TP/(TP+FP), recall = TP/(TP+FN), F1 = 2·precision·recall/(precision+recall), FN = phishing yang diprediksi legitimate; ROC-AUC = luas di bawah kurva ROC. Jumlah data latih, validasi, dan uji ada pada Tabel 1. † = analisis post-hoc.")
+table(["Skenario", "Model", "F1 valid.", "F1 uji", "Precision", "Recall", "ROC-AUC", "FN"], rows2, [4.0, 2.6, 1.5, 2.3, 1.6, 1.5, 1.6, 1.1], size=9)
 d.add_paragraph().paragraph_format.space_after = Pt(2)
 figure("figures/gambar2_f1.png", 4.3, "Gambar 2. F1 pada data uji per skenario dan model. Garis tebal menunjukkan rata-rata lima *seed*, titik menunjukkan tiap *seed*, dan garis putus-putus menunjukkan baseline aturan satu baris.")
 H("3.3 Selisih antar skenario", 3)

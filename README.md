@@ -49,6 +49,23 @@ Lihat `data/README.md` (sumber, SHA-256, lisensi). CSV tidak disertakan; letakka
 6. `python src/build_paper.py` merakit `paper/draft.docx` dari berkas hasil.
 7. Notebook di `notebooks/` membaca hasil yang sudah disimpan; pelatihan model dilakukan oleh skrip di atas.
 
+## Pembagian data dan seed
+- Kelas positif: phishing. Pada berkas asli `label` 1 berarti legitimate dan 0 phishing; kode memakai `phish = (label == 0)`.
+- Data dibagi 70:15:15 menjadi latih, validasi, dan uji. Pembagian acak distratifikasi menurut kelas; pembagian grup memakai eTLD+1 sebagai kunci (`StratifiedGroupKFold`, 20 lipatan dirakit 14, 3, 3).
+- Seed: 42, 43, 44, 45, 46 (lima pengulangan). Hyperparameter dipilih hanya pada data validasi seed 42, lalu dibekukan lewat commit sebelum data uji dibuka.
+
+## Output yang diharapkan
+| Langkah | Keluaran | Isi yang diharapkan |
+|---|---|---|
+| `audit_data.py` | `results/audit_summary.json` | 235.795 baris, 56 kolom, 0 nilai hilang, 235.370 URL unik, 175.509 grup eTLD+1 setelah pembersihan |
+| `check_splits.py` | `results/split_check.json` | 0 grup bersama antar bagian pada skema `grup`; proporsi phishing data uji 42,4% sampai 43,6% |
+| `run_experiments.py tuning` | `results/config_beku.json` | hyperparameter terpilih per skenario dan model |
+| `run_experiments.py final` | `results/metrics.csv` | 100 baris (skenario A sampai D dan baseline aturan, dua model, lima seed, bagian validasi dan uji) |
+| `analyze_results.py`, `measure_latency.py` | `results/analysis_selisih.csv`, `results/latency.json` | selisih F1 dengan interval bootstrap; waktu inferensi per URL |
+| `make_figures.py` | `figures/gambar1_alur.png`, `gambar2_f1.png`, `gambar3_selisih.png`; `results/tables/*.csv` | gambar dan tabel untuk paper |
+| Analisis post-hoc | `results/metrics_ablasi.csv`, `analysis_ablasi.csv`, `analysis_outlier_seed44.json`, `reproduksi_g1.json` | ablation fitur turunan korpus; asal negatif palsu pada seed 44; reproduksi baseline repositori referensi |
+| `build_paper.py` | `paper/draft.docx` | naskah IMRAD yang angkanya dibaca dari `results/` |
+
 ## Status
 Minggu 1 sampai 4 selesai: literatur dan proposal, audit data, eksperimen skenario A sampai D (hasil di `results/`), dan draf paper IMRAD (`paper/draft.docx`). Minggu 5 (peer review silang, respons reviewer, tag rilis) belum.
 
