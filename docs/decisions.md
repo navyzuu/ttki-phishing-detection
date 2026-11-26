@@ -32,7 +32,7 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 ## D6. Split dan seed
 - Tiga bagian: train, validation, test, dengan rasio 70:15:15 (diputuskan 26 November 2026).
 - *Random split*: stratifikasi menurut kelas, seed 42; diulang pada seed 42 sampai 46.
-- Split per eTLD+1: seluruh URL satu kelompok berada pada satu bagian; seed 42 sampai 46.
+- Split per eTLD+1: seluruh URL satu kelompok berada pada satu bagian; seed 42 sampai 46. Implementasi: `StratifiedGroupKFold` 20 lipatan, diacak lalu dirakit 14/3/3 (lihat Perubahan 1).
 - Imputer, scaler, dan seleksi fitur hanya di-fit pada train.
 
 ## D7. Model, tuning, dan evaluasi
@@ -52,4 +52,10 @@ Pengelompokan berdasarkan asal fitur, bukan berdasarkan kekuatan prediksinya.
 - Masih kosong dan tidak menghalangi eksperimen: identitas Anggota 2 dan teks lisensi dari halaman Kaggle.
 
 ## Perubahan
-(Belum ada.)
+
+### 1. Split per eTLD+1 dibuat berstratifikasi (26 November 2026, sebelum model apa pun dilatih)
+- Temuan (`results/split_check.json`, `src/check_splits.py`): dengan `GroupShuffleSplit` biasa, proporsi phishing pada test berkisar 35,4% sampai 54,1% antar seed, dan ukuran test 31.752 sampai 43.948 baris, karena grup raksasa (`web.app`, `firebaseapp.com`, dan seterusnya) jatuh acak ke satu bagian.
+- Alasan: F1 bergantung pada proporsi kelas, sehingga selisih F1 *random split* vs split grup akan tercampur dengan perbedaan proporsi, bukan hanya efek domain.
+- Keputusan: skema utama `grup` memakai `StratifiedGroupKFold` (20 lipatan, dirakit 14/3/3). Hasil: test berproporsi phishing 42,4% sampai 43,6% (total 42,71%), ukuran bagian sekitar 70/15/15, tumpang tindih grup nol pada semua seed.
+- Versi naif tetap tersedia sebagai `grup_shuffle` untuk analisis sensitivitas (sebanding dengan GroupShuffleSplit pada studi terdahulu).
+- Biaya: pembuatan split per grup lambat (menit per seed); hasil di-cache di `data/interim/` (tidak masuk repositori) dan dapat dibuat ulang dari seed.

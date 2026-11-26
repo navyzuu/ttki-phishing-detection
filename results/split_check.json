@@ -1,0 +1,356 @@
+{
+  "baris_setelah_dedup": 235370,
+  "proporsi_phishing_total": 0.4271,
+  "grup_unik": 175509,
+  "acak": {
+    "42": {
+      "train": {
+        "baris": 164759,
+        "proporsi_phishing": 0.4271,
+        "grup": 124331
+      },
+      "validation": {
+        "baris": 35305,
+        "proporsi_phishing": 0.4271,
+        "grup": 27870
+      },
+      "test": {
+        "baris": 35306,
+        "proporsi_phishing": 0.4271,
+        "grup": 27925
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 2231,
+        "train_test": 2211,
+        "validation_test": 1092
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "43": {
+      "train": {
+        "baris": 164759,
+        "proporsi_phishing": 0.4271,
+        "grup": 124341
+      },
+      "validation": {
+        "baris": 35305,
+        "proporsi_phishing": 0.4271,
+        "grup": 27841
+      },
+      "test": {
+        "baris": 35306,
+        "proporsi_phishing": 0.4271,
+        "grup": 27911
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 2208,
+        "train_test": 2207,
+        "validation_test": 1079
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "44": {
+      "train": {
+        "baris": 164759,
+        "proporsi_phishing": 0.4271,
+        "grup": 124267
+      },
+      "validation": {
+        "baris": 35305,
+        "proporsi_phishing": 0.4271,
+        "grup": 27888
+      },
+      "test": {
+        "baris": 35306,
+        "proporsi_phishing": 0.4271,
+        "grup": 27952
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 2225,
+        "train_test": 2197,
+        "validation_test": 1096
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "45": {
+      "train": {
+        "baris": 164759,
+        "proporsi_phishing": 0.4271,
+        "grup": 124365
+      },
+      "validation": {
+        "baris": 35305,
+        "proporsi_phishing": 0.4271,
+        "grup": 27869
+      },
+      "test": {
+        "baris": 35306,
+        "proporsi_phishing": 0.4271,
+        "grup": 27862
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 2209,
+        "train_test": 2216,
+        "validation_test": 1041
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "46": {
+      "train": {
+        "baris": 164759,
+        "proporsi_phishing": 0.4271,
+        "grup": 124343
+      },
+      "validation": {
+        "baris": 35305,
+        "proporsi_phishing": 0.4271,
+        "grup": 27838
+      },
+      "test": {
+        "baris": 35306,
+        "proporsi_phishing": 0.4271,
+        "grup": 27948
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 2229,
+        "train_test": 2216,
+        "validation_test": 1052
+      },
+      "indeks_unik_dan_lengkap": true
+    }
+  },
+  "grup": {
+    "42": {
+      "train": {
+        "baris": 165164,
+        "proporsi_phishing": 0.4285,
+        "grup": 120755
+      },
+      "validation": {
+        "baris": 35103,
+        "proporsi_phishing": 0.4237,
+        "grup": 27375
+      },
+      "test": {
+        "baris": 35103,
+        "proporsi_phishing": 0.4237,
+        "grup": 27379
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "43": {
+      "train": {
+        "baris": 164577,
+        "proporsi_phishing": 0.4264,
+        "grup": 124588
+      },
+      "validation": {
+        "baris": 35106,
+        "proporsi_phishing": 0.4238,
+        "grup": 26066
+      },
+      "test": {
+        "baris": 35687,
+        "proporsi_phishing": 0.4333,
+        "grup": 24855
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "44": {
+      "train": {
+        "baris": 163824,
+        "proporsi_phishing": 0.4238,
+        "grup": 125808
+      },
+      "validation": {
+        "baris": 35687,
+        "proporsi_phishing": 0.4333,
+        "grup": 24850
+      },
+      "test": {
+        "baris": 35859,
+        "proporsi_phishing": 0.436,
+        "grup": 24851
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "45": {
+      "train": {
+        "baris": 164578,
+        "proporsi_phishing": 0.4264,
+        "grup": 123281
+      },
+      "validation": {
+        "baris": 35104,
+        "proporsi_phishing": 0.4237,
+        "grup": 27371
+      },
+      "test": {
+        "baris": 35688,
+        "proporsi_phishing": 0.4333,
+        "grup": 24857
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "46": {
+      "train": {
+        "baris": 165159,
+        "proporsi_phishing": 0.4285,
+        "grup": 121391
+      },
+      "validation": {
+        "baris": 35106,
+        "proporsi_phishing": 0.4238,
+        "grup": 26738
+      },
+      "test": {
+        "baris": 35105,
+        "proporsi_phishing": 0.4238,
+        "grup": 27380
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    }
+  },
+  "grup_shuffle": {
+    "42": {
+      "train": {
+        "baris": 170215,
+        "proporsi_phishing": 0.4446,
+        "grup": 122856
+      },
+      "validation": {
+        "baris": 32227,
+        "proporsi_phishing": 0.3731,
+        "grup": 26326
+      },
+      "test": {
+        "baris": 32928,
+        "proporsi_phishing": 0.3891,
+        "grup": 26327
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "43": {
+      "train": {
+        "baris": 172568,
+        "proporsi_phishing": 0.4539,
+        "grup": 122856
+      },
+      "validation": {
+        "baris": 30995,
+        "proporsi_phishing": 0.3437,
+        "grup": 26326
+      },
+      "test": {
+        "baris": 31807,
+        "proporsi_phishing": 0.3628,
+        "grup": 26327
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "44": {
+      "train": {
+        "baris": 162672,
+        "proporsi_phishing": 0.4197,
+        "grup": 122856
+      },
+      "validation": {
+        "baris": 37696,
+        "proporsi_phishing": 0.4619,
+        "grup": 26326
+      },
+      "test": {
+        "baris": 35002,
+        "proporsi_phishing": 0.4239,
+        "grup": 26327
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "45": {
+      "train": {
+        "baris": 157552,
+        "proporsi_phishing": 0.4015,
+        "grup": 122856
+      },
+      "validation": {
+        "baris": 33870,
+        "proporsi_phishing": 0.3989,
+        "grup": 26326
+      },
+      "test": {
+        "baris": 43948,
+        "proporsi_phishing": 0.5406,
+        "grup": 26327
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    },
+    "46": {
+      "train": {
+        "baris": 163616,
+        "proporsi_phishing": 0.4255,
+        "grup": 122856
+      },
+      "validation": {
+        "baris": 40002,
+        "proporsi_phishing": 0.4914,
+        "grup": 26326
+      },
+      "test": {
+        "baris": 31752,
+        "proporsi_phishing": 0.354,
+        "grup": 26327
+      },
+      "grup_tumpang_tindih": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "indeks_unik_dan_lengkap": true
+    }
+  }
+}

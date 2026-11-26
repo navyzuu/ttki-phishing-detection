@@ -1,5 +1,6 @@
 # Data mentah besar dan berkas lokal tidak masuk repositori
 data/raw/
+data/interim/
 *.csv.zip
 .venv/
 __pycache__/
