@@ -336,7 +336,7 @@ P("Penelitian lanjutan dapat menguji data independen dan terpisah waktu, mengend
 
 # ------------------------------------------------------------------ akhir
 H("Ketersediaan Data dan Kode")
-P("Data berasal dari PhiUSIIL Phishing URL (Website), UCI Machine Learning Repository (id 967), dengan lisensi CC BY 4.0 menurut halaman UCI; salinan Kaggle diunduh pada 26 November 2026 dan teks lisensi pada halaman Kaggle belum dicatat. "
+P("Data berasal dari PhiUSIIL Phishing URL (Website), UCI Machine Learning Repository (id 967; lisensi CC BY 4.0 menurut halaman UCI); salinan Kaggle diunduh pada 26 November 2026 (lisensi pada halaman Kaggle: CC BY-SA 4.0). "
   "Seluruh kode, hasil, dan catatan keputusan tersedia di https://github.com/navyzuu/ttki-phishing-detection (tag versi final: [diisi setelah rilis]). Data mentah tidak disertakan (SHA-256 pada data/README.md). "
   "Lingkungan: Python 3.11.9, pandas 3.0.5, scikit-learn 1.9.1, tldextract 5.4.0.")
 H("Pernyataan Penggunaan AI")

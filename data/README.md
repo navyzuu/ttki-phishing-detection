@@ -12,9 +12,11 @@ Berkas CSV tidak disertakan di repositori (lihat `.gitignore`). Unduh sendiri la
 | SHA-256 | `a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6` |
 | Tanggal unduh | 26 November 2026 (dikonfirmasi pengguna) |
 | Lisensi (UCI) | CC BY 4.0, tertera di halaman UCI id 967 (disumbangkan 3 Maret 2024). Wajib mencantumkan kredit kepada pencipta. |
-| Lisensi (Kaggle) | [salin dari halaman Kaggle; belum diverifikasi] |
+| Lisensi (Kaggle) | CC BY-SA 4.0 (tercantum pada bagian Metadata, License, halaman Kaggle; tautan https://creativecommons.org/licenses/by-sa/4.0/). Dicatat 26 November 2026. |
 | Ukuran | 235.795 baris, 56 kolom (54 fitur, `FILENAME`, `label`) |
 | Target | `label`: **1 = legitimate, 0 = phishing** (diverifikasi dari data; lihat `docs/decisions.md` D1) |
+
+Catatan: lisensi pada UCI (CC BY 4.0) dan pada Kaggle (CC BY-SA 4.0) berbeda. Salinan yang dipakai berasal dari Kaggle, sehingga syarat yang lebih ketat (BY-SA: karya turunan dari data harus dibagikan dengan lisensi yang sama) dipakai sebagai pegangan. Repositori ini tidak menyertakan data; kode berlisensi MIT.
 
 Cara memverifikasi berkas: `sha256sum data/raw/PhiUSIIL_Phishing_URL_Dataset.csv` harus sama dengan nilai di atas. Hasil audit: `python src/audit_data.py` menulis `results/audit_summary.json`.
 
